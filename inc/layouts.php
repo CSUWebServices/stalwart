@@ -2,8 +2,8 @@
 /**
  * Sidebar Layouts
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
@@ -11,7 +11,7 @@
 /**
  * Layout Options
  **/
-function be_page_layout_options() {
+function csu_page_layout_options() {
 	return [
 		'content-sidebar',
 		'content',
@@ -22,10 +22,10 @@ function be_page_layout_options() {
 /**
  * Gutenberg layout style
  */
-function be_editor_layout_style() {
+function csu_editor_layout_style() {
 	wp_enqueue_style( 'cwp-editor-layout', get_theme_file_uri( '/assets/css/editor-layout.css' ), [], filemtime( get_theme_file_path( '/assets/css/editor-layout.css' ) ) );
 }
-add_action( 'enqueue_block_editor_assets', 'be_editor_layout_style' );
+add_action( 'enqueue_block_editor_assets', 'csu_editor_layout_style' );
 
 /**
  * Editor layout class
@@ -33,33 +33,33 @@ add_action( 'enqueue_block_editor_assets', 'be_editor_layout_style' );
  * @param string $classes Classes.
  * @return string
  */
-function be_editor_layout_class( $classes ) {
+function csu_editor_layout_class( $classes ) {
 	$screen = get_current_screen();
 	if ( ! method_exists( $screen, 'is_block_editor' ) || ! $screen->is_block_editor() ) {
 		return $classes;
 	}
 
 	$post_id = isset( $_GET['post'] ) ? intval( $_GET['post'] ) : false;
-	$layout  = be_page_layout( $post_id );
+	$layout  = csu_page_layout( $post_id );
 	if ( false === strpos( $classes, 'block-area-' ) ) {
 		$classes .= ' ' . $layout . ' ';
 	}
 	return $classes;
 }
-add_filter( 'admin_body_class', 'be_editor_layout_class', 20 );
+add_filter( 'admin_body_class', 'csu_editor_layout_class', 20 );
 
 
 /**
  * Layout Metabox (ACF)
  */
-function be_page_layout_metabox() {
+function csu_page_layout_metabox() {
 
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
 	}
 
 	$choices = [];
-	$layouts = be_page_layout_options();
+	$layouts = csu_page_layout_options();
 	foreach ( $layouts as $layout ) {
 		$label              = str_replace( '-', ' ', $layout );
 		$choices[ $layout ] = ucwords( $label );
@@ -73,7 +73,7 @@ function be_page_layout_metabox() {
 				array(
 					'key' => 'field_5dd715a02eaf0',
 					'label' => 'Page Layout',
-					'name' => 'be_page_layout',
+					'name' => 'csu_page_layout',
 					'type' => 'select',
 					'instructions' => '',
 					'required' => 0,
@@ -114,18 +114,18 @@ function be_page_layout_metabox() {
 		]
 	);
 }
-add_action( 'acf/init', 'be_page_layout_metabox' );
+add_action( 'acf/init', 'csu_page_layout_metabox' );
 
 /**
  * Layout Body Class
  *
  * @param array $classes Body Classes.
  */
-function be_layout_body_class( $classes ) {
-	$classes[] = be_page_layout();
+function csu_layout_body_class( $classes ) {
+	$classes[] = csu_page_layout();
 	return $classes;
 }
-add_filter( 'body_class', 'be_layout_body_class', 5 );
+add_filter( 'body_class', 'csu_layout_body_class', 5 );
 
 
 
@@ -134,14 +134,14 @@ add_filter( 'body_class', 'be_layout_body_class', 5 );
  *
  * @param int|false $id Post ID.
  */
-function be_page_layout( $id = false ) {
+function csu_page_layout( $id = false ) {
 
 	$id = $id ? intval( $id ) : false;
 	if ( empty( $id ) && is_singular() ) {
 		$id = get_the_ID();
 	}
 
-	$available_layouts = be_page_layout_options();
+	$available_layouts = csu_page_layout_options();
 	$layout            = 'content';
 
 	// Default layouts.
@@ -157,13 +157,13 @@ function be_page_layout( $id = false ) {
 
 	// Selected layout.
 	if ( $id ) {
-		$selected = get_post_meta( $id, 'be_page_layout', true );
+		$selected = get_post_meta( $id, 'csu_page_layout', true );
 		if ( ! empty( $selected ) && in_array( $selected, $available_layouts, true ) ) {
 			$layout = $selected;
 		}
 	}
 
-	$layout = apply_filters( 'be_page_layout', $layout );
+	$layout = apply_filters( 'csu_page_layout', $layout );
 	$layout = in_array( $layout, $available_layouts, true ) ? $layout : $available_layouts[0];
 
 	return sanitize_title_with_dashes( $layout );
@@ -172,20 +172,20 @@ function be_page_layout( $id = false ) {
 /**
  * Return Full Width Content
  */
-function be_return_full_width_content() {
+function csu_return_full_width_content() {
 	return 'full-width-content';
 }
 
 /**
  * Return Content Sidebar
  */
-function be_return_content_sidebar() {
+function csu_return_content_sidebar() {
 	return 'content-sidebar';
 }
 
 /**
  * Return Content
  */
-function be_return_content() {
+function csu_return_content() {
 	return 'content';
 }

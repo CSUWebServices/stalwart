@@ -2,8 +2,8 @@
 /**
  * Functions
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
@@ -34,7 +34,7 @@ include_once get_template_directory() . '/inc/wpforms.php';
 /**
  * Enqueue scripts and styles.
  */
-function be_scripts() {
+function csu_scripts() {
 
 	wp_enqueue_script( 'theme-global', get_theme_file_uri( '/assets/js/global.js' ), [], filemtime( get_theme_file_path( '/assets/js/global.js' ) ), true );
 
@@ -45,17 +45,17 @@ function be_scripts() {
 	wp_enqueue_style( 'theme-style', get_theme_file_uri( '/assets/css/main.css' ), array(), filemtime( get_theme_file_path( '/assets/css/main.css' ) ) );
 
 }
-add_action( 'wp_enqueue_scripts', 'be_scripts' );
+add_action( 'wp_enqueue_scripts', 'csu_scripts' );
 
 /**
  * Gutenberg scripts and styles
  */
-function be_gutenberg_scripts() {
+function csu_gutenberg_scripts() {
 	wp_enqueue_script( 'theme-editor', get_theme_file_uri( '/assets/js/editor.js' ), array( 'wp-blocks', 'wp-dom' ), filemtime( get_theme_file_path( '/assets/js/editor.js' ) ), true );
 }
-add_action( 'enqueue_block_editor_assets', 'be_gutenberg_scripts' );
+add_action( 'enqueue_block_editor_assets', 'csu_gutenberg_scripts' );
 
-if ( ! function_exists( 'be_setup' ) ) :
+if ( ! function_exists( 'csu_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -63,11 +63,11 @@ if ( ! function_exists( 'be_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function be_setup() {
+	function csu_setup() {
 		/*
 		 * Make theme available for translation.
 		 */
-		load_theme_textdomain( 'bestarter_textdomain', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'stalwart_textdomain', get_template_directory() . '/languages' );
 
 		// Editor Styles.
 		add_theme_support( 'editor-styles' );
@@ -96,7 +96,7 @@ if ( ! function_exists( 'be_setup' ) ) :
 		/**
 		 * Set the content width in pixels, based on the theme's design and stylesheet.
 		 */
-		$GLOBALS['content_width'] = apply_filters( 'be_content_width', 800 );
+		$GLOBALS['content_width'] = apply_filters( 'csu_content_width', 800 );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
@@ -130,18 +130,18 @@ if ( ! function_exists( 'be_setup' ) ) :
 	}
 
 endif;
-add_action( 'after_setup_theme', 'be_setup' );
+add_action( 'after_setup_theme', 'csu_setup' );
 
 /**
  * Template Hierarchy
  *
  * @param string $template Template.
  */
-function be_template_hierarchy( $template ) {
+function csu_template_hierarchy( $template ) {
 
 	if ( is_search() ) {
 		$template = get_query_template( 'archive' );
 	}
 	return $template;
 }
-add_filter( 'template_include', 'be_template_hierarchy' );
+add_filter( 'template_include', 'csu_template_hierarchy' );

@@ -2,8 +2,8 @@
 /**
  * Loop
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
@@ -11,7 +11,7 @@
 /**
  * Default Loop
  */
-function be_default_loop() {
+function csu_default_loop() {
 
 	if ( have_posts() ) :
 
@@ -31,29 +31,29 @@ function be_default_loop() {
 	else :
 
 		tha_entry_before();
-		$context = apply_filters( 'be_empty_loop_partial_context', 'no-content' );
+		$context = apply_filters( 'csu_empty_loop_partial_context', 'no-content' );
 		get_template_part( 'partials/content/' . $context );
 		tha_entry_after();
 
 	endif;
 
 }
-add_action( 'tha_content_loop', 'be_default_loop' );
+add_action( 'tha_content_loop', 'csu_default_loop' );
 
 /**
  * Entry Title
  */
-function be_entry_header() {
-	if ( be_has_h1_block() ) {
-		add_filter( 'render_block', 'be_entry_header_in_content', 10, 2 );
+function csu_entry_header() {
+	if ( csu_has_h1_block() ) {
+		add_filter( 'render_block', 'csu_entry_header_in_content', 10, 2 );
 
 	} else {
-		do_action( 'be_entry_title_before' );
+		do_action( 'csu_entry_title_before' );
 		echo '<h1 class="entry-title">' . esc_html( get_the_title() ) . '</h1>';
-		do_action( 'be_entry_title_after' );
+		do_action( 'csu_entry_title_after' );
 	}
 }
-add_action( 'tha_entry_top', 'be_entry_header' );
+add_action( 'tha_entry_top', 'csu_entry_header' );
 
 /**
  * Entry header in content
@@ -61,15 +61,15 @@ add_action( 'tha_entry_top', 'be_entry_header' );
  * @param string $output Outout.
  * @param array  $block Block.
  */
-function be_entry_header_in_content( $output, $block ) {
+function csu_entry_header_in_content( $output, $block ) {
 	if ( 'core/heading' === $block['blockName'] && ! empty( $block['attrs'] ) && ! empty( $block['attrs']['level'] ) && 1 === $block['attrs']['level'] ) {
 		ob_start();
-		do_action( 'be_entry_title_before' );
+		do_action( 'csu_entry_title_before' );
 		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Value is hardcoded and safe, not set via input.
 		echo $output;
-		do_action( 'be_entry_title_after' );
+		do_action( 'csu_entry_title_after' );
 		$output = ob_get_clean();
-		remove_filter( 'render_block', 'be_entry_header_in_content', 10 );
+		remove_filter( 'render_block', 'csu_entry_header_in_content', 10 );
 	}
 
 	return $output;
@@ -82,7 +82,7 @@ function be_entry_header_in_content( $output, $block ) {
  *
  * @param array $blocks Blocks.
  */
-function be_has_h1_block( $blocks = array() ) {
+function csu_has_h1_block( $blocks = array() ) {
 
 	if ( is_singular() && empty( $blocks ) ) {
 		global $post;
@@ -105,7 +105,7 @@ function be_has_h1_block( $blocks = array() ) {
 
 			// Scan inner blocks for headings.
 		} elseif ( isset( $block['innerBlocks'] ) && ! empty( $block['innerBlocks'] ) ) {
-			$inner_h1 = be_has_h1_block( $block['innerBlocks'] );
+			$inner_h1 = csu_has_h1_block( $block['innerBlocks'] );
 			if ( $inner_h1 ) {
 				return true;
 			}

@@ -2,13 +2,13 @@
 /**
  * Site Footer
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
 
-use BEStarter\Block_Areas;
+use Stalwart\Block_Areas;
 
 echo '</div>'; // .site-inner
 

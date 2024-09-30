@@ -2,29 +2,29 @@
 /**
  * Helper Functions
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
 
 // Duplicate 'the_content' filters.
 global $wp_embed;
-add_filter( 'be_the_content', array( $wp_embed, 'run_shortcode' ), 8 );
-add_filter( 'be_the_content', array( $wp_embed, 'autoembed'     ), 8 );
-add_filter( 'be_the_content', 'do_blocks', 9 );
-add_filter( 'be_the_content', 'wptexturize' );
-add_filter( 'be_the_content', 'convert_chars' );
-add_filter( 'be_the_content', 'wpautop' );
-add_filter( 'be_the_content', 'shortcode_unautop' );
-add_filter( 'be_the_content', 'do_shortcode' );
+add_filter( 'csu_the_content', array( $wp_embed, 'run_shortcode' ), 8 );
+add_filter( 'csu_the_content', array( $wp_embed, 'autoembed'     ), 8 );
+add_filter( 'csu_the_content', 'do_blocks', 9 );
+add_filter( 'csu_the_content', 'wptexturize' );
+add_filter( 'csu_the_content', 'convert_chars' );
+add_filter( 'csu_the_content', 'wpautop' );
+add_filter( 'csu_the_content', 'shortcode_unautop' );
+add_filter( 'csu_the_content', 'do_shortcode' );
 
 /**
  * Get the first term attached to post
  *
  * @param array $args Args.
  */
-function be_first_term( $args = [] ) {
+function csu_first_term( $args = [] ) {
 
 	$defaults = [
 		'taxonomy' => 'category',
@@ -90,7 +90,7 @@ function be_first_term( $args = [] ) {
  * @param bool   $conditional whether to add $optional_class or not.
  * @return string $classes
  */
-function be_class( $base_classes, $optional_class, $conditional ) {
+function csu_class( $base_classes, $optional_class, $conditional ) {
 	return $conditional ? $base_classes . ' ' . $optional_class : $base_classes;
 }
 
@@ -108,7 +108,7 @@ function be_class( $base_classes, $optional_class, $conditional ) {
  *
  * @param array $atts Shortcode Attributes.
  */
-function be_icon( $atts = array() ) {
+function csu_icon( $atts = array() ) {
 
 	$atts = shortcode_atts(
 		[
@@ -176,14 +176,14 @@ function be_icon( $atts = array() ) {
 		// Display reference to icon.
 	} else {
 
-		global $be_icons;
-		if ( empty( $be_icons[ $atts['group'] ] ) ) {
-			$be_icons[ $atts['group'] ] = [];
+		global $csu_icons;
+		if ( empty( $csu_icons[ $atts['group'] ] ) ) {
+			$csu_icons[ $atts['group'] ] = [];
 		}
-		if ( empty( $be_icons[ $atts['group'] ][ $atts['icon'] ] ) ) {
-			$be_icons[ $atts['group'] ][ $atts['icon'] ] = 1;
+		if ( empty( $csu_icons[ $atts['group'] ][ $atts['icon'] ] ) ) {
+			$csu_icons[ $atts['group'] ][ $atts['icon'] ] = 1;
 		} else {
-			$be_icons[ $atts['group'] ][ $atts['icon'] ]++;
+			$csu_icons[ $atts['group'] ][ $atts['icon'] ]++;
 		}
 
 		$attr = '';
@@ -209,29 +209,29 @@ function be_icon( $atts = array() ) {
 /**
  * Icon Definitions
  */
-function be_icon_definitions() {
-	global $be_icons;
+function csu_icon_definitions() {
+	global $csu_icons;
 
-	if ( empty( $be_icons ) ) {
+	if ( empty( $csu_icons ) ) {
 		return;
 	}
 
 	echo '<svg style="display:none;"><defs>';
-	foreach ( $be_icons as $group => $icons ) {
+	foreach ( $csu_icons as $group => $icons ) {
 		foreach ( $icons as $icon => $count ) {
-			echo be_icon( [ 'icon' => $icon, 'group' => $group, 'defs' => true ] );
+			echo csu_icon( [ 'icon' => $icon, 'group' => $group, 'defs' => true ] );
 		}
 	}
 	echo '</defs></svg>';
 }
-add_action( 'wp_footer', 'be_icon_definitions', 20 );
+add_action( 'wp_footer', 'csu_icon_definitions', 20 );
 
 /**
  * Has Action
  *
  * @param string $hook Hook.
  */
-function be_has_action( $hook ) {
+function csu_has_action( $hook ) {
 	ob_start();
 	do_action( $hook );
 	$output = ob_get_clean();
@@ -244,7 +244,7 @@ function be_has_action( $hook ) {
  * @param array $field ACF Field data.
  * @param array $atts Button attributes.
  */
-function be_button( $field = [], $atts = [] ) {
+function csu_button( $field = [], $atts = [] ) {
 
 	if ( empty( $field ) ) {
 		return;
@@ -273,13 +273,13 @@ function be_button( $field = [], $atts = [] ) {
 /**
  * Is Block Area
  */
-function be_is_block_area( $block_area = '', $post_id = '' ) {
-	return 'block_area' === get_post_type( $post_id ) && $block_area === get_post_meta( $post_id, 'be_block_area', true );
+function csu_is_block_area( $block_area = '', $post_id = '' ) {
+	return 'block_area' === get_post_type( $post_id ) && $block_area === get_post_meta( $post_id, 'csu_block_area', true );
 }
 
 /**
  * Render Search
  */
-function be_render_search() {
+function csu_render_search() {
 	return render_block( [ 'blockName' => 'core/search', 'attrs' => [ 'label' => 'Search', 'showLabel' => false, 'placeholder' => 'Search the site', 'buttonText' => 'Search', 'buttonPosition' => 'button-inside', 'buttonUseIcon' => true ] ] );
 }

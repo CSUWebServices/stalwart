@@ -2,8 +2,8 @@
 /**
  * Login Logo
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
@@ -13,16 +13,16 @@
  *
  * @param string $url URL.
  */
-function be_login_header_url( $url ) {
+function csu_login_header_url( $url ) {
 	return esc_url( home_url() );
 }
-add_filter( 'login_headerurl', 'be_login_header_url' );
+add_filter( 'login_headerurl', 'csu_login_header_url' );
 add_filter( 'login_headertext', '__return_empty_string' );
 
 /**
  * Login Logo
  */
-function be_login_logo() {
+function csu_login_logo() {
 
 	$logo_path   = '/assets/icons/logo/logo.svg';
 	$logo_width  = 212;
@@ -51,4 +51,4 @@ function be_login_logo() {
 	);
 	wp_add_inline_style( 'theme-style', $styles );
 }
-//add_action( 'login_head', 'be_login_logo' );
+//add_action( 'login_head', 'csu_login_logo' );

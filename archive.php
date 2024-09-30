@@ -2,25 +2,25 @@
 /**
  * Archive
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
 
 // Full width.
-add_filter( 'be_page_layout', 'be_return_full_width_content' );
+add_filter( 'csu_page_layout', 'csu_return_full_width_content' );
 
 /**
  * Body Class
  *
  * @param array $classes Body classes.
  */
-function be_archive_body_class( $classes ) {
+function csu_archive_body_class( $classes ) {
 	$classes[] = 'archive';
 	return $classes;
 }
-add_filter( 'body_class', 'be_archive_body_class' );
+add_filter( 'body_class', 'csu_archive_body_class' );
 
 // Build the page.
 require get_template_directory() . '/index.php';

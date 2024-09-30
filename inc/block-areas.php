@@ -2,20 +2,20 @@
 /**
  * Block Areas
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
 
-namespace BEStarter\Block_Areas;
+namespace Stalwart\Block_Areas;
 
 /**
  * Block Areas
  */
 function block_areas() {
 	$block_areas = [ 'sidebar', 'after-post', 'before-footer', '404' ];
-	return apply_filters( 'be_block_areas', $block_areas );
+	return apply_filters( 'csu_block_areas', $block_areas );
 }
 
 /**
@@ -30,18 +30,18 @@ function block_area_name( $block_area ) {
  */
 function register_cpt() {
 	$labels = [
-		'name'               => __( 'Block Areas', 'bestarter_textdomain' ),
-		'singular_name'      => __( 'Block Area', 'bestarter_textdomain' ),
-		'add_new'            => __( 'Add New', 'bestarter_textdomain' ),
-		'add_new_item'       => __( 'Add New Block Area', 'bestarter_textdomain' ),
-		'edit_item'          => __( 'Edit Block Area', 'bestarter_textdomain' ),
-		'new_item'           => __( 'New Block Area', 'bestarter_textdomain' ),
-		'view_item'          => __( 'View Block Area', 'bestarter_textdomain' ),
-		'search_items'       => __( 'Search Block Areas', 'bestarter_textdomain' ),
-		'not_found'          => __( 'No Block Areas found', 'bestarter_textdomain' ),
-		'not_found_in_trash' => __( 'No Block Areas found in Trash', 'bestarter_textdomain' ),
-		'parent_item_colon'  => __( 'Parent Block Area:', 'bestarter_textdomain' ),
-		'menu_name'          => __( 'Block Areas', 'bestarter_textdomain' ),
+		'name'               => __( 'Block Areas', 'stalwart_textdomain' ),
+		'singular_name'      => __( 'Block Area', 'stalwart_textdomain' ),
+		'add_new'            => __( 'Add New', 'stalwart_textdomain' ),
+		'add_new_item'       => __( 'Add New Block Area', 'stalwart_textdomain' ),
+		'edit_item'          => __( 'Edit Block Area', 'stalwart_textdomain' ),
+		'new_item'           => __( 'New Block Area', 'stalwart_textdomain' ),
+		'view_item'          => __( 'View Block Area', 'stalwart_textdomain' ),
+		'search_items'       => __( 'Search Block Areas', 'stalwart_textdomain' ),
+		'not_found'          => __( 'No Block Areas found', 'stalwart_textdomain' ),
+		'not_found_in_trash' => __( 'No Block Areas found in Trash', 'stalwart_textdomain' ),
+		'parent_item_colon'  => __( 'Parent Block Area:', 'stalwart_textdomain' ),
+		'menu_name'          => __( 'Block Areas', 'stalwart_textdomain' ),
 	];
 
 	$args = [
@@ -90,7 +90,7 @@ function register_field_group() {
 	array(
 		'key' => 'field_62ec3df6af2c1',
 		'label' => 'Block Area',
-		'name' => 'be_block_area',
+		'name' => 'csu_block_area',
 		'type' => 'select',
 		'instructions' => '',
 		'required' => 0,
@@ -142,7 +142,7 @@ function limit_block_posts( $post_id ) {
 		return;
 	}
 
-	$block_area = get_post_meta( $post_id, 'be_block_area', true );
+	$block_area = get_post_meta( $post_id, 'csu_block_area', true );
 	if ( empty( $block_area ) ) {
 		return;
 	}
@@ -152,14 +152,14 @@ function limit_block_posts( $post_id ) {
 	$others = new \WP_Query( [
 		'post_type' => 'block_area',
 		'post__not_in' => [ $post_id ],
-		'meta_key' => 'be_block_area',
+		'meta_key' => 'csu_block_area',
 		'meta_value' => $block_area,
 		'fields' => 'ids',
 	]);
 
 	if ( ! empty( $others->posts ) ) {
 		foreach( $others->posts as $other_id ) {
-			delete_post_meta( $other_id, 'be_block_area' );
+			delete_post_meta( $other_id, 'csu_block_area' );
 		}
 	}
 }
@@ -174,7 +174,7 @@ function admin_column( $columns ) {
 		$new[ $key ] = $value;
 
 		if ( 'title' === $key ) {
-			$new[ 'be_block_area'] = 'Assigned to';
+			$new[ 'csu_block_area'] = 'Assigned to';
 		}
 	}
 	return $new;
@@ -185,8 +185,8 @@ add_filter( 'manage_block_area_posts_columns', __NAMESPACE__ . '\\admin_column' 
  * Admin column value
  */
 function admin_column_value( $column_name, $post_id ) {
-	if ( 'be_block_area' === $column_name ) {
-		echo block_area_name( get_post_meta( get_the_ID(), 'be_block_area', true ) );
+	if ( 'csu_block_area' === $column_name ) {
+		echo block_area_name( get_post_meta( get_the_ID(), 'csu_block_area', true ) );
 	}
 }
 add_action( 'manage_block_area_posts_custom_column', __NAMESPACE__ . '\\admin_column_value', 10, 2 );
@@ -206,7 +206,7 @@ function admin_body_class( $classes ) {
 	}
 
 	$classes .= ' block-area ';
-	$block_area = get_post_meta( $post_id, 'be_block_area', true );
+	$block_area = get_post_meta( $post_id, 'csu_block_area', true );
 	if ( ! empty( $block_area ) ) {
 		$classes .= ' block-area-' . str_replace( '_', '-', $block_area ) . ' ';
 	}
@@ -220,7 +220,7 @@ add_filter( 'admin_body_class', __NAMESPACE__ . '\\admin_body_class' );
  */
 function show( $block_area = '', $echo = true ) {
 	$output = '';
-	$args   = [ 'post_type' => 'block_area', 'posts_per_page' => 1, 'post_status' => 'publish', 'meta_key' => 'be_block_area', 'meta_value' => esc_attr( $block_area ) ];
+	$args   = [ 'post_type' => 'block_area', 'posts_per_page' => 1, 'post_status' => 'publish', 'meta_key' => 'csu_block_area', 'meta_value' => esc_attr( $block_area ) ];
 	$loop   = new \WP_Query( $args );
 
 	if( $loop->have_posts() ):
@@ -229,7 +229,7 @@ function show( $block_area = '', $echo = true ) {
 			$loop->the_post();
 			$classes = [ 'block-area', 'block-area-' . $block_area ];
 			$output .= '<div class="' . esc_attr( join( ' ', $classes ) ) . '">';
-			$output .= apply_filters( 'be_the_content', $post->post_content );
+			$output .= apply_filters( 'csu_the_content', $post->post_content );
 			$output .= '</div>';
 		endwhile;
 	endif;

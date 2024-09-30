@@ -5,7 +5,7 @@
         {
             "key": "field_631618fba58b0",
             "label": "Title",
-            "name": "be_archive_title",
+            "name": "csu_archive_title",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -25,7 +25,7 @@
         {
             "key": "field_63161906a58b1",
             "label": "Description",
-            "name": "be_archive_description",
+            "name": "csu_archive_description",
             "aria-label": "",
             "type": "wysiwyg",
             "instructions": "",
@@ -45,7 +45,7 @@
         {
             "key": "field_6316193aa58b2",
             "label": "Image",
-            "name": "be_archive_image",
+            "name": "csu_archive_image",
             "aria-label": "",
             "type": "image",
             "instructions": "",

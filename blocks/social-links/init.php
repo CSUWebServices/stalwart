@@ -2,13 +2,13 @@
 /**
  * Social Links block
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
 
-namespace BEStarter\Blocks\Social_Links;
+namespace Stalwart\Blocks\Social_Links;
 
 /**
  * Site social links
@@ -54,7 +54,7 @@ function site( $block = [] ) {
 		}
 		$icon = isset( $settings['icon'] ) ? $settings['icon'] : $social;
 		if ( ! empty( $url ) ) {
-			$output[] = '<li><a href="' . esc_url_raw( $url ) . '" target="_blank" rel="noopener noreferrer" aria-label="' . $settings['label'] . '">' . be_icon( array( 'icon' => $icon ) ) . '</a></li>';
+			$output[] = '<li><a href="' . esc_url_raw( $url ) . '" target="_blank" rel="noopener noreferrer" aria-label="' . $settings['label'] . '">' . csu_icon( array( 'icon' => $icon ) ) . '</a></li>';
 		}
 	}
 
@@ -90,7 +90,7 @@ function user( $user_id = false ) {
 		}
 		$icon = isset( $settings['icon'] ) ? $settings['icon'] : $social;
 		if ( ! empty( $url ) ) {
-			$output[] = '<li><a href="' . esc_url_raw( $url ) . '" target="_blank" rel="noopener noreferrer" aria-label="' . $settings['label'] . '">' . be_icon( array( 'icon' => $icon ) ) . '</a></li>';
+			$output[] = '<li><a href="' . esc_url_raw( $url ) . '" target="_blank" rel="noopener noreferrer" aria-label="' . $settings['label'] . '">' . csu_icon( array( 'icon' => $icon ) ) . '</a></li>';
 		}
 	}
 
@@ -110,7 +110,7 @@ function socials() {
 			'label' => 'Instagram',
 		],
 		'youtube'   => [
-			'key'   => 'youtube_url',
+			'key'   => 'youtucsu_url',
 			'label' => 'YouTube',
 			'icon'  => 'youtube-play',
 		],

@@ -2,8 +2,8 @@
 /**
  * Home
  *
- * @package      BEStarter
- * @author       Bill Erickson
+ * @package      Stalwart
+ * @author       CSU Web Services
  * @since        1.0.0
  * @license      GPL-2.0+
  **/
@@ -11,7 +11,7 @@
 /**
  * Home Content
  */
-function be_home_content() {
+function csu_home_content() {
 
 	if ( get_query_var( 'paged' ) ) {
 		return;
@@ -38,7 +38,7 @@ function be_home_content() {
 	}
 	wp_reset_postdata();
 }
-add_action( 'tha_content_while_before', 'be_home_content', 20 );
+add_action( 'tha_content_while_before', 'csu_home_content', 20 );
 
 // Build the page.
 require get_template_directory() . '/archive.php';
