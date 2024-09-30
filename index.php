@@ -1,9 +1,27 @@
 <?php
 /**
- * This file has been left empty on purpose.
+ * Base template
  *
- * @link https://core.trac.wordpress.org/ticket/54272
- *
- * @package stalwart
- * @since 1.0.0
- */
+ * @package      BEStarter
+ * @author       Bill Erickson
+ * @since        1.0.0
+ * @license      GPL-2.0+
+ **/
+
+get_header();
+
+tha_content_before();
+
+	echo '<div class="content-area">';
+	tha_content_wrap_before();
+	echo '<main class="site-main" role="main">';
+	tha_content_top();
+	tha_content_loop();
+	tha_content_bottom();
+	echo '</main>';
+	get_sidebar();
+	tha_content_wrap_after();
+	echo '</div>';
+tha_content_after();
+
+get_footer();
