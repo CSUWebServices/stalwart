@@ -11,7 +11,7 @@
 			"palette": [
 				{
 					"slug": "foreground",
-					"color": "#000000",
+					"color": "#59595B",
 					"name": "Foreground"
 				},
 				{
@@ -20,58 +20,75 @@
 					"name": "Background"
 				},
 				{
-					"slug": "primary",
-					"color": "#0000EE",
-					"name": "Primary"
+					"slug": "csu-green",
+					"color": "#1E4D2B",
+					"name": "CSU Green"
 				},
 				{
-					"slug": "secondary",
-					"color": "#00FFFF",
-					"name": "Secondary"
+					"slug": "csu-gold",
+					"color": "#C8C372",
+					"name": "CSU Gold"
 				},
 				{
-					"slug": "tertiary",
-					"color": "#00FFFF",
-					"name": "Tertiary"
+					"slug": "aggie-orange",
+					"color": "#D9782D",
+					"name": "Aggie Orange"
 				},
 				{
-					"slug": "quaternary",
-					"color": "#00FFFF",
-					"name": "Quaternary"
+					"slug": "oval-green",
+					"color": "#006144",
+					"name": "Oval Green"
 				},
 				{
-					"slug": "quinary",
-					"color": "#00FFFF",
-					"name": "Quinary"
+					"slug": "lovers-lane",
+					"color": "#82C503",
+					"name": "Lovers Lane"
 				},
 				{
-					"slug": "senary",
-					"color": "#00FFFF",
-					"name": "Senary"
+					"slug": "energy-green",
+					"color": "#CFFC00",
+					"name": "Energy Green"
 				},
 				{
-					"slug": "septenary",
-					"color": "#00FFFF",
-					"name": "Septenary"
+					"slug": "flower-trial-red",
+					"color": "#E56A54",
+					"name": "Flower Trial Red"
 				},
 				{
-					"slug": "octonary",
-					"color": "#00FFFF",
-					"name": "Octonary"
+					"slug": "powered-Purple",
+					"color": "#7E5475",
+					"name": "Powered Purple"
 				},
 				{
-					"slug": "nonary",
-					"color": "#00FFFF",
-					"name": "Nonary"
+					"slug": "horsetooth-blue",
+					"color": "#008FB3",
+					"name": "Horsetooth Blue"
 				},
 				{
-					"slug": "denary",
-					"color": "#00FFFF",
-					"name": "Denary"
+					"slug": "stalwart-slate",
+					"color": "#105456",
+					"name": "Stalwart Slate"
+				},
+				{
+					"slug": "sunshine",
+					"color": "#FFC038",
+					"name": "Sunshine"
+				},
+				{
+					"slug": "gray",
+					"color": "#CCCCCC",
+					"name": "Gray"
+				},
+				{
+					"slug": "tan",
+					"color": "#E3CDB1",
+					"name": "Tan"
 				}
 			],
 			"gradients": [],
-			"link": false
+			"background": true,
+			"link": true,
+			"text": true
 		},
 		"custom": {
 			"border-radius": {
