@@ -161,17 +161,113 @@
 			"customFontSize": false,
 			"defaultFontSizes": false,
 			"letterSpacing": false,
+			"fluid": true,
 			"fontFamilies": [
 				{
-					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-					"name": "System Sans Serif",
-					"slug": "system-sans-serif"
+					"fontFace": [
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "400",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "500",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Medium.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "500",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Medium.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "600",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-SemiBold.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "600",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-SemiBold.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Bold.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "700",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Bold.woff2"
+							]
+						}
+					],
+					"fontFamily": "\"Poppins\", sans-serif",
+					"name": "Poppins",
+					"slug": "poppins"
 				},
 				{
-					"fontFamily": "-apple-system-ui-serif, ui-serif, Noto Serif, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
-					"name": "System Serif",
-					"slug": "system-serif"
+					"fontFace": [
+						{
+							"fontFamily": "Bodoni",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [
+								"file:./assets/fonts/bodoni/BodoniModa_72pt-Regular.ttf"
+							]
+						},
+						{
+							"fontFamily": "Bodoni",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "600",
+							"src": [
+								"file:./assets/fonts/bodoni/BodoniModa_72pt-Italic.ttf"
+							]
+						}
+					],
+					"fontFamily": "\"Bodoni\", serif",
+					"name": "Bodoni",
+					"slug": "bodoni"
 				}
+				
 			],
 			"fontSizes": [
 				{
