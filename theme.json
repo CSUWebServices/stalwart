@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"settings": {
 		"color": {
 			"custom": false,
@@ -142,6 +142,7 @@
 			"dropCap": false,
 			"lineHeight": false,
 			"customFontSize": false,
+			"defaultFontSizes": false,
 			"letterSpacing": false,
 			"fontFamilies": [
 				{
