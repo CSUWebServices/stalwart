@@ -13,7 +13,6 @@ require_once get_template_directory() . '/inc/tha-theme-hooks.php';
 require_once get_template_directory() . '/inc/layouts.php';
 require_once get_template_directory() . '/inc/helper-functions.php';
 require_once get_template_directory() . '/inc/wordpress-cleanup.php';
-require_once get_template_directory() . '/inc/comments.php';
 include_once get_template_directory() . '/inc/site-header.php';
 include_once get_template_directory() . '/inc/site-footer.php';
 include_once get_template_directory() . '/inc/archive-header.php';
@@ -29,7 +28,6 @@ include_once get_template_directory() . '/inc/login-logo.php';
 // Plugin Support.
 require_once get_template_directory() . '/inc/acf.php';
 require_once get_template_directory() . '/inc/wordpress-seo.php';
-include_once get_template_directory() . '/inc/wpforms.php';
 
 /**
  * Enqueue scripts and styles.
