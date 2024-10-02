@@ -1,6 +1,6 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
-	"version": 2,
+	"version": 3,
 	"settings": {
 		"color": {
 			"custom": false,
@@ -11,7 +11,7 @@
 			"palette": [
 				{
 					"slug": "foreground",
-					"color": "#000000",
+					"color": "#59595B",
 					"name": "Foreground"
 				},
 				{
@@ -20,58 +20,75 @@
 					"name": "Background"
 				},
 				{
-					"slug": "primary",
-					"color": "#0000EE",
-					"name": "Primary"
+					"slug": "csu-green",
+					"color": "#1E4D2B",
+					"name": "CSU Green"
 				},
 				{
-					"slug": "secondary",
-					"color": "#00FFFF",
-					"name": "Secondary"
+					"slug": "csu-gold",
+					"color": "#C8C372",
+					"name": "CSU Gold"
 				},
 				{
-					"slug": "tertiary",
-					"color": "#00FFFF",
-					"name": "Tertiary"
+					"slug": "aggie-orange",
+					"color": "#D9782D",
+					"name": "Aggie Orange"
 				},
 				{
-					"slug": "quaternary",
-					"color": "#00FFFF",
-					"name": "Quaternary"
+					"slug": "oval-green",
+					"color": "#006144",
+					"name": "Oval Green"
 				},
 				{
-					"slug": "quinary",
-					"color": "#00FFFF",
-					"name": "Quinary"
+					"slug": "lovers-lane",
+					"color": "#82C503",
+					"name": "Lovers Lane"
 				},
 				{
-					"slug": "senary",
-					"color": "#00FFFF",
-					"name": "Senary"
+					"slug": "energy-green",
+					"color": "#CFFC00",
+					"name": "Energy Green"
 				},
 				{
-					"slug": "septenary",
-					"color": "#00FFFF",
-					"name": "Septenary"
+					"slug": "flower-trial-red",
+					"color": "#E56A54",
+					"name": "Flower Trial Red"
 				},
 				{
-					"slug": "octonary",
-					"color": "#00FFFF",
-					"name": "Octonary"
+					"slug": "powered-Purple",
+					"color": "#7E5475",
+					"name": "Powered Purple"
 				},
 				{
-					"slug": "nonary",
-					"color": "#00FFFF",
-					"name": "Nonary"
+					"slug": "horsetooth-blue",
+					"color": "#008FB3",
+					"name": "Horsetooth Blue"
 				},
 				{
-					"slug": "denary",
-					"color": "#00FFFF",
-					"name": "Denary"
+					"slug": "stalwart-slate",
+					"color": "#105456",
+					"name": "Stalwart Slate"
+				},
+				{
+					"slug": "sunshine",
+					"color": "#FFC038",
+					"name": "Sunshine"
+				},
+				{
+					"slug": "gray",
+					"color": "#CCCCCC",
+					"name": "Gray"
+				},
+				{
+					"slug": "tan",
+					"color": "#E3CDB1",
+					"name": "Tan"
 				}
 			],
 			"gradients": [],
-			"link": false
+			"background": true,
+			"link": true,
+			"text": true
 		},
 		"custom": {
 			"border-radius": {
@@ -91,7 +108,7 @@
 				"2": "0px 3px 10px rgba(33, 33, 33, 0.25)"
 			},
 			"color": {
-				"link" : "#0000EE",
+				"link" : "#1E4D2B",
 				"neutral-50": "#FAFAFA",
 				"neutral-100": "#F5F5F5",
 				"neutral-200": "#EEEEEE",
@@ -142,18 +159,115 @@
 			"dropCap": false,
 			"lineHeight": false,
 			"customFontSize": false,
+			"defaultFontSizes": false,
 			"letterSpacing": false,
+			"fluid": true,
 			"fontFamilies": [
 				{
-					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
-					"name": "System Sans Serif",
-					"slug": "system-sans-serif"
+					"fontFace": [
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "400",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "400",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Regular.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "500",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Medium.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "500",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Medium.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "600",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-SemiBold.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "600",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-SemiBold.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Bold.woff2"
+							]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "700",
+							"src": [
+								"https://static.colostate.edu/fonts/poppins/poppins/Poppins-Bold.woff2"
+							]
+						}
+					],
+					"fontFamily": "\"Poppins\", sans-serif",
+					"name": "Poppins",
+					"slug": "poppins"
 				},
 				{
-					"fontFamily": "-apple-system-ui-serif, ui-serif, Noto Serif, Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
-					"name": "System Serif",
-					"slug": "system-serif"
+					"fontFace": [
+						{
+							"fontFamily": "Bodoni",
+							"fontStretch": "normal",
+							"fontStyle": "normal",
+							"fontWeight": "700",
+							"src": [
+								"file:./assets/fonts/bodoni/BodoniModa_72pt-Regular.ttf"
+							]
+						},
+						{
+							"fontFamily": "Bodoni",
+							"fontStretch": "normal",
+							"fontStyle": "italic",
+							"fontWeight": "600",
+							"src": [
+								"file:./assets/fonts/bodoni/BodoniModa_72pt-Italic.ttf"
+							]
+						}
+					],
+					"fontFamily": "\"Bodoni\", serif",
+					"name": "Bodoni",
+					"slug": "bodoni"
 				}
+				
 			],
 			"fontSizes": [
 				{
@@ -272,15 +386,16 @@
 			},
 			"heading": {
 				"typography": {
-					"fontFamily": "var(--wp--preset--font-family--system-serif)",
-					"fontWeight": "900",
+					"fontFamily": "var(--wp--preset--font-family--bodoni)",
+					"fontWeight": "700",
 					"lineHeight": "var(--wp--custom--line-height--small)"
 				}
 			},
 			"h1": {
 				"typography": {
 					"fontSize": "var(--wp--preset--font-size--colossal)",
-					"lineHeight": "var(--wp--custom--line-height--tiny)"
+					"lineHeight": "var(--wp--custom--line-height--tiny)",
+					"fontStyle": "italic"
 				}
 			},
 			"h2": {
@@ -313,7 +428,7 @@
 			"blockGap": "var(--wp--custom--layout--block-gap)"
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--system-sans-serif)",
+			"fontFamily": "var(--wp--preset--font-family--poppins)",
 			"lineHeight": "var(--wp--custom--line-height--normal)",
 			"fontSize": "var(--wp--preset--font-size--medium)"
 		}
